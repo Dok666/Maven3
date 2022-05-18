@@ -8,15 +8,12 @@ public class StatsService {
         for (int sale : sales) {
             sum += sale;
         }
-
         return sum;
     }
 
     public int averageAmount(int[] sales) {
-        int sum = 0;
-        for (int sale : sales) {
-            sum += sale;
-        }
+        int sum = sum(sales);
+
         int averageAmount = sum / 12;
 
         return averageAmount;
@@ -26,12 +23,11 @@ public class StatsService {
         int maximumMonth = 0;
         int month = 0;
         for (int sale : sales) {
-            if (sale >= sales[maximumMonth])
+            if (sale >= sales[maximumMonth]) {
                 maximumMonth = month;
-
+            }
             month = month + 1;
         }
-
         return maximumMonth + 1;
     }
 
@@ -39,36 +35,29 @@ public class StatsService {
         int minimumMonth = 0;
         int month = 0;
         for (int sale : sales) {
-            if (sale <= sales[minimumMonth])
+            if (sale <= sales[minimumMonth]) {
                 minimumMonth = month;
-
+            }
             month = month + 1;
         }
-
         return minimumMonth + 1;
     }
 
     public int belowAverageSales(int[] sales) {
-        int sum = 0;
-        for (int sale : sales) {
-            sum += sale;
-        }
+        int sum = sum(sales);
         int averageAmount = sum / 12;
         int numberOfMonths = 0;
 
         for (int sale : sales) {
-            if (averageAmount > sale)
+            if (averageAmount > sale) {
                 numberOfMonths = numberOfMonths + 1;
+            }
         }
-
         return numberOfMonths;
     }
 
     public int aboveAverageSales(int[] sales) {
-        int sum = 0;
-        for (int sale : sales) {
-            sum += sale;
-        }
+        int sum = sum(sales);
         int averageAmount = sum / 12;
         int numberOfMonthsOfMaximumSales = 0;
 
@@ -76,10 +65,12 @@ public class StatsService {
             if (averageAmount < sale)
                 numberOfMonthsOfMaximumSales = numberOfMonthsOfMaximumSales + 1;
         }
-        
+
         return numberOfMonthsOfMaximumSales;
     }
 }
+
+
 
 
 
